@@ -1,0 +1,5 @@
+<h1>Welcome to Stock Tracker</h1>
+
+<% flash.each do |key, msg| %>
+  <%= content_tag :div, msg, :id => key %>
+<% end %>
