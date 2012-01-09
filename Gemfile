@@ -7,6 +7,7 @@ gem 'rails', '3.1.0'
 
 gem 'sqlite3'
 gem "webrat"
+gem 'twitter-bootstrap-rails'
 
 group :test, :development do
   gem "rspec-rails", "~> 2.6"

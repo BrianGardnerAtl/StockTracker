@@ -1,0 +1,40 @@
+<h1>Update Profile</h1>
+<h3>Welcome <%= current_user.email %></h3>
+
+<% flash.each do |key, msg| %>
+  <%= content_tag :div, msg, :id => key, :class => "alert-message #{key}" %>
+<% end %>
+
+<div class="row">
+  <div class="container-fluid">
+    <div class="sidebar">
+      <h3>Change Password</h3>
+      <p>Type in current password, then desired password.</p>
+    </div>
+    <div class="content">
+      <%= form_tag edit_user_path(@current_user) do %>
+        <div class="field">
+          <%= label_tag :password %>
+          <%= password_field_tag :password %>
+        </div>
+        <br />
+        <div class="field">
+          <%= label_tag :new_password %>
+          <%= password_field_tag :new_password %>
+        </div>
+        <br />
+        <div class="field">
+          <%= label_tag :new_password_confirmation %>
+          <%= password_field_tag :new_password_confirmation %>
+        </div>
+        <br />
+        <div class="hidden">
+          <%= hidden_field_tag :changed_password, :value=>true %>
+        </div>
+        <div class="action">
+          <%= submit_tag "Update password", :class=>"btn primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
