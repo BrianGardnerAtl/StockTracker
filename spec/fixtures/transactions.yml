@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  symbol: MyString
+  type: false
+  shares: 1
+  price: 
+
+two:
+  symbol: MyString
+  type: false
+  shares: 1
+  price: 

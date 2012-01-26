@@ -1,0 +1,33 @@
+<%= form_for(@transaction) do |f| %>
+  <% if @transaction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+
+      <ul>
+      <% @transaction.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "Stock Symbol" %>
+    <%= f.text_field :symbol %>
+  </div>
+  <div class="field">
+    <%= f.label "Transaction Type" %>
+    <%= f.select :type,{"Buy"=>true, "Sell"=>false} %>
+  </div>
+  <div class="field">
+    <%= f.label "# of Shares" %>
+    <%= f.number_field :shares %>
+  </div>
+  <div class="field">
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+  </div>
+  <div class="actions">
+    <%= f.submit :class=>"btn primary"%>
+  </div>
+<% end %>
