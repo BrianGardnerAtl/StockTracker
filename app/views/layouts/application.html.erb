@@ -10,7 +10,7 @@
   <div class="topbar">
     <div class="topbar-inner">
       <div class="container">
-        <h3><%= link_to "StockTracker", "/" %></h3>
+        <h3><%= main_button%></h3>
         <ul class="nav secondary-nav">
           <% if current_user %>
             <li><%= link_to "#{current_user.email}", :controller => :users, :action => :edit, :id=>current_user.id %></li>
