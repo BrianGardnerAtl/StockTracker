@@ -22,4 +22,9 @@ class User < ActiveRecord::Base
   def new_password_match?(passA, passB)
     passA == passB
   end
+
+  def has_transactions
+    !Transaction.where(:user_id => self.id).blank?
+  end
+
 end

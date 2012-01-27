@@ -41,6 +41,12 @@ class TransactionsController < ApplicationController
   # POST /transactions.json
   def create
     @transaction = Transaction.new(params[:transaction])
+    @transaction.user_id = current_user.id
+    if params[:transaction][:call_type]=="0"
+      @transaction.call_type = true
+    else
+      @transaction.call_type = false
+    end
 
     respond_to do |format|
       if @transaction.save
