@@ -2,7 +2,6 @@
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
-require 'rspec/autorun'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -12,4 +11,11 @@ RSpec.configure do |config|
   config.mock_with :mocha
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = true
+  config.extend VCR::RSpec::Macros
+end
+
+VCR.config do |c|
+  c.cassette_library_dir = File.expand_path(File.join('fixtures', 'vcr_cassettes'), File.dirname(__FILE__))
+  c.stub_with :fakeweb
+  c.default_cassette_options = { :record => :new_episodes }
 end
