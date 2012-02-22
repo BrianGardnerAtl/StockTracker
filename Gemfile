@@ -21,6 +21,10 @@ group :test do
   gem 'turn', :require => false
 end
 
+group :development do
+  gem 'pry'
+end
+
 
 # Gems used only for assets and not required
 # in production environments by default.
