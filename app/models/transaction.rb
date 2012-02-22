@@ -24,9 +24,4 @@ class Transaction < ActiveRecord::Base
     quote = YahooStock::Quote.new(:stock_symbols => symbol)
     quote.results(:to_hash).output[0][:last_trade_price_only]
   end
-
-  def valid_symbol?
-    quote = YahooStock::Quote.new(:stock_symbols => symbol)
-    quote.results(:to_hash).output[0][:last_trade_date] != "N/A"
-  end
 end
