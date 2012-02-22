@@ -6,7 +6,6 @@ class Transaction < ActiveRecord::Base
   validates_presence_of :symbol
   validates_presence_of :shares
   validates_presence_of :price
- # validates :symbol, :symbol => true
   belongs_to :user
 
   def type_string
